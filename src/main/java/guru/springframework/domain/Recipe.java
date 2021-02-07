@@ -1,6 +1,7 @@
 package guru.springframework.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by Jeff Stark on 2/7/2021
@@ -21,6 +22,9 @@ public class Recipe {
     private String directions;
     //todo add
     //private Difficulty difficulty;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredients;
 
     //this annotation tells JPA to store the byte array as a blob in the database
     @Lob
@@ -93,6 +97,14 @@ public class Recipe {
         this.directions = directions;
     }
 
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     public Byte[] getImage() {
         return image;
     }
@@ -108,4 +120,5 @@ public class Recipe {
     public void setNotes(Notes notes) {
         this.notes = notes;
     }
+
 }
