@@ -7,10 +7,10 @@ import lombok.Setter;
 /**
  * Created by jt on 6/21/17.
  */
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
-public class UnitOfMeasureCommand {
+public class CategoryCommand {
     private Long id;
     private String description;
 }

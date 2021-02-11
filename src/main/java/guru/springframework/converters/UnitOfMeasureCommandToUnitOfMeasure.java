@@ -8,10 +8,10 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by Jeff Stark on 2/11/2021
+ * Created by jt on 6/21/17.
  */
 @Component
-public class UnitOfMeasureCommandToUnitOfMeasure implements Converter<UnitOfMeasureCommand, UnitOfMeasure> {
+public class UnitOfMeasureCommandToUnitOfMeasure implements Converter<UnitOfMeasureCommand, UnitOfMeasure>{
 
     @Synchronized
     @Nullable

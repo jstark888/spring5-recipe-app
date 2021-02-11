@@ -9,19 +9,16 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-
 /**
- * Created by Jeff Stark on 2/10/2021
+ * Created by jt on 6/19/17.
  */
-
-
 public class RecipeControllerTest {
+
 
     @Mock
     RecipeService recipeService;
@@ -31,11 +28,13 @@ public class RecipeControllerTest {
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
+
         controller = new RecipeController(recipeService);
     }
 
     @Test
-    public void showById() throws Exception {
+    public void testGetRecipe() throws Exception {
+
         Recipe recipe = new Recipe();
         recipe.setId(1L);
 
@@ -47,6 +46,5 @@ public class RecipeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/show"))
                 .andExpect(model().attributeExists("recipe"));
-
     }
 }

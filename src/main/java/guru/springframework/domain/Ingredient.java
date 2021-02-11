@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
- * Created by Jeff Stark on 2/7/2021
+ * Created by jt on 6/13/17.
  */
 @Data
 @EqualsAndHashCode(exclude = {"recipe"})
@@ -17,12 +17,9 @@ public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String description;
     private BigDecimal amount;
 
-    //for one to one relationship fetch type EAGER is the default
-    // but specified here to show the intent
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure uom;
 
@@ -44,4 +41,5 @@ public class Ingredient {
         this.uom = uom;
         this.recipe = recipe;
     }
+
 }
